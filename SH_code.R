@@ -37,8 +37,8 @@ for(bat in 1:length(bats)){
     bat.points[[i]]<-do.call("rbind",iter.points)
     iter.clusters<-clusthr(bat.points[[i]][,"ClustID"])
     iter.clusters<-getverticeshr(iter.clusters,percent=fit)
-    iter.clusters<-gBuffer(iter.clusters,byid=T,width=3)#changed from 1.0
-    iter.clusters<-gBuffer(iter.clusters,byid=T,width=-3)
+    iter.clusters<-gBuffer(iter.clusters,byid=T,width=4)#changed from 1.0
+    iter.clusters<-gBuffer(iter.clusters,byid=T,width=-4)
     bat.clusters[[i]]<-iter.clusters[rev(order(iter.clusters$area)),]
     if(i==2){bats.intersections[[bat]]<-gIntersection(bat.clusters[[1]],bat.clusters[[2]],byid=T)}
     if(i>2){bats.intersections[[bat]]<-gIntersection(bats.intersections[[bat]],bat.clusters[[i]])}
